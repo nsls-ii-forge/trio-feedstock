@@ -17,10 +17,9 @@ build:
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
-  host:
+  build:
     - python
     - pip
-    - sniffio
   run:
     - python
     - attrs >=18.2.0
