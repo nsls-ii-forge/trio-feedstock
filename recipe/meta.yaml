@@ -4,17 +4,17 @@
 {% set hash_value = "149a280a4c66ef08d058626e3f48bf979e6e079777d1fc5cae71676586ced672" %}
 
 package:
-  name: '{{ name|lower }}'
-  version: '{{ version }}'
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  '{{ hash_type }}': '{{ hash_value }}'
+  {{ hash_type }}: {{ hash_value }}
 
 build:
-  skip: True  # [py<36]
   number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  skip: True  # [py<36]
 
 requirements:
   host:
@@ -48,7 +48,3 @@ about:
   summary: An async/await-native I/O library for humans and snake people
   doc_url: https://trio.readthedocs.io/
   dev_url: https://github.com/python-trio/trio
-
-extra:
-  recipe-maintainers:
-    - nicoddemus
