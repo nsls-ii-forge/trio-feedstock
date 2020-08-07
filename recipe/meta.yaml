@@ -1,6 +1,6 @@
 {% set name = "trio" %}
-{% set version = "0.12.1" %}
-{% set sha256 = "149a280a4c66ef08d058626e3f48bf979e6e079777d1fc5cae71676586ced672" %}
+{% set version = "0.16.0" %}
+{% set sha256 = "df067dd0560c321af39d412cd81fc3a7d13f55af9150527daab980683e9fcf3c" %}
 
 package:
   name: {{ name|lower }}
@@ -11,9 +11,9 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
-  skip: True  # [py<36]
+  skip: true  # [py<36]
 
 requirements:
   host:
