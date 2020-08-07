@@ -1,7 +1,6 @@
 {% set name = "trio" %}
 {% set version = "0.12.1" %}
-{% set hash_type = "sha256" %}
-{% set hash_value = "149a280a4c66ef08d058626e3f48bf979e6e079777d1fc5cae71676586ced672" %}
+{% set sha256 = "149a280a4c66ef08d058626e3f48bf979e6e079777d1fc5cae71676586ced672" %}
 
 package:
   name: {{ name|lower }}
@@ -9,11 +8,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  {{ hash_type }}: {{ hash_value }}
+  sha256: {{ sha256 }}
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   skip: True  # [py<36]
 
 requirements:
